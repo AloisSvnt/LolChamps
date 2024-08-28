@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { loadChampData } from "./api/fetchData";
+import { loadChampData } from "./api/dataProcessing";
 import { ChampsState } from "./types/interfaces";
 
 const App: React.FC = () => {
