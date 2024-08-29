@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { loadChampData } from "./api/dataProcessing";
 import { ChampsState } from "./types/interfaces";
+import Wheel from "./components/Wheel/Wheel";
 
 const App: React.FC = () => {
   const [champData, setChampData] = useState<ChampsState>({
@@ -18,12 +19,13 @@ const App: React.FC = () => {
   useEffect(() => {
     if (Object.keys(champData.champs).length > 0) {
       setIsImport(true);
-      console.log(champData.champs.data);
+      // console.log(champData.champs.data);
     }
   }, [champData]);
 
   return (
     <div>
+      <Wheel />
       {isImport &&
         Object.keys(champData.champs.data).map((champ) => (
           <div key={champ}>
@@ -33,7 +35,7 @@ const App: React.FC = () => {
             <div>
               {champData.champsAbilitiesImages[champ].map(
                 (abilityImage, index) => (
-                  <>
+                  <React.Fragment key={index}>
                     <p>
                       {index + 1 === 1
                         ? "Q spell"
@@ -44,7 +46,6 @@ const App: React.FC = () => {
                         : "Ultimate"}
                     </p>
                     <img
-                      key={index}
                       src={abilityImage}
                       onMouseOver={() =>
                         console.log(
@@ -61,7 +62,7 @@ const App: React.FC = () => {
                           : "R"
                       }`}
                     />
-                  </>
+                  </React.Fragment>
                 )
               )}
             </div>
