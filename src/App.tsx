@@ -26,7 +26,7 @@ const App: React.FC = () => {
   return (
     <div>
       <Wheel />
-      {isImport &&
+      {/* {isImport &&
         Object.keys(champData.champs.data).map((champ) => (
           <div key={champ}>
             <h3>{champ}</h3>
@@ -67,7 +67,7 @@ const App: React.FC = () => {
               )}
             </div>
           </div>
-        ))}
+        ))} */}
     </div>
   );
 };

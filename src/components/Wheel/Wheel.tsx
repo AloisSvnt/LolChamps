@@ -3,17 +3,18 @@ import { spinWheel } from "./spinWheel";
 import "./Wheel.css";
 
 const segments = [
-  { name: "Jungle", color: "bg-green-500" },
-  { name: "ADC", color: "bg-purple-500" },
-  { name: "Support", color: "bg-yellow-500" },
-  { name: "Mid", color: "bg-blue-500" },
-  { name: "Top", color: "bg-lime-500" },
+  { name: "Jungle", color: "bg-emerald-600" },
+  { name: "ADC", color: "bg-yellow-600" },
+  { name: "Support", color: "bg-orange-600" },
+  { name: "Mid", color: "bg-sky-600" },
+  { name: "Top", color: "bg-red-600" },
 ];
 
 function Wheel() {
   const [rotation, setRotation] = useState(0);
   const [isSpinning, setIsSpinning] = useState(false);
   const [selectedSegment, setSelectedSegment] = useState<string | null>(null);
+  const [degrees, setDegrees] = useState(0);
 
   return (
     <div className="wheel-container">
@@ -33,18 +34,20 @@ function Wheel() {
         ))}
       </div>
       <button
-        onClick={() =>
+        onClick={() => {
           spinWheel(
             isSpinning,
             setIsSpinning,
             setRotation,
             setSelectedSegment,
-            segments
-          )
-        }
+            segments,
+            degrees,
+            setDegrees
+          );
+        }}
         disabled={isSpinning}
       >
-        Spin the Wheel
+        Spin
       </button>
       {selectedSegment && <p>Selected Segment: {selectedSegment}</p>}{" "}
     </div>

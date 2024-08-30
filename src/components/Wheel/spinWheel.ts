@@ -7,13 +7,17 @@ export const spinWheel = (
   setIsSpinning: Function,
   setRotation: Function,
   setSelectedSegment: Function,
-  segments: Array<Segment>
+  segments: Array<Segment>,
+  degrees: number,
+  setDegrees: Function
 ) => {
   if (isSpinning) return;
 
   setIsSpinning(true);
   const randomSpin = Math.floor(Math.random() * 5) + 5;
-  const degrees = randomSpin * 360 + Math.floor(Math.random() * 360);
+  setDegrees(degrees += randomSpin * 360 + Math.floor(Math.random() * 360));
+
+  console.log(degrees);
 
   setRotation(degrees);
 
