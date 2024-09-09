@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { loadChampData } from "./api/dataProcessing";
 import { ChampsState } from "./types/interfaces";
-import Wheel from "./components/Wheel/Wheel";
+// import Wheel from "./components/Wheel/Wheel";
+import WheelFace from "./components/WheelFace/WheelFace";
 
 const App: React.FC = () => {
   const [champData, setChampData] = useState<ChampsState>({
@@ -25,7 +26,7 @@ const App: React.FC = () => {
 
   return (
     <div>
-      <Wheel />
+      <WheelFace />
       {/* {isImport &&
         Object.keys(champData.champs.data).map((champ) => (
           <div key={champ}>

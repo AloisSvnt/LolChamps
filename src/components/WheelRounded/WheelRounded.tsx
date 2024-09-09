@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { spinWheel } from "./spinWheel";
+import { spinWheel } from "./spinWheelRounded";
 import "./Wheel.css";
 
 const segments = [
